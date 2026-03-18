@@ -99,32 +99,32 @@ Este projeto não é apenas um chat em tempo real, mas também demonstra prátic
 - Health checks
 - Métricas de aplicação
 
-# 🧰 Technologies
-
-## Backend
-
-Built using:
-
-- :contentReference[oaicite:1]{index=1}
-- :contentReference[oaicite:2]{index=2}
-- :contentReference[oaicite:3]{index=3}
-- :contentReference[oaicite:4]{index=4}
+🧰 Technologies
+🚀 Backend
+<p> <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" /> <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" /> <img src="https://img.shields.io/badge/Socket.IO-010101?style=for-the-badge&logo=socketdotio&logoColor=white" /> <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" /> <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" /> <img src="https://img.shields.io/badge/bcrypt-4A90E2?style=for-the-badge" /> </p>
 
 Responsibilities:
 
-- User authentication
-- WebSocket message handling
-- API endpoints
-- Database communication
+🔐 User authentication
 
----
+⚡ WebSocket message handling
 
-## Frontend
+🌐 API endpoints
 
-Built using:
+🗄️ Database communication
 
-- :contentReference[oaicite:5]{index=5}
-- :contentReference[oaicite:6]{index=6}
+🎨 Frontend
+<p> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" /> <img src="https://img.shields.io/badge/Socket.IO_Client-010101?style=for-the-badge&logo=socketdotio&logoColor=white" /> </p>
+
+Responsibilities:
+
+🎨 UI rendering
+
+🔑 Authentication flow
+
+🔌 Real-time WebSocket connection
+
+💬 Message display
 
 Responsibilities:
 
