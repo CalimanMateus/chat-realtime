@@ -1,9 +1,20 @@
+const { client } = require('../metrics');
 const Message = require('../models/messageModel');
 const jwt = require('jsonwebtoken');
 
-const handleChatSocket = (io) => {
+// Métricas Prometheus
+const messagesCounter = new client.Counter({
+  name: 'chat_messages_total',
+  help: 'Total de mensagens enviadas no chat',
+});
+
+function handleChatSocket(io, { connections, connectedUsersGauge }) {
   io.on('connection', (socket) => {
-    console.log('Usuário conectado ao chat:', socket.id);
+    console.log('Usuário conectado:', socket.id);
+
+    // ➕ usuário entrou
+    connections.count++;
+    connectedUsersGauge.set(connections.count);
 
     // Autenticar usuário via token
     socket.on('authenticate', async (token) => {
@@ -12,7 +23,7 @@ const handleChatSocket = (io) => {
         socket.userId = decoded.userId;
         socket.username = decoded.username;
         console.log(`${socket.username} conectado ao chat`);
-        
+
         // Enviar confirmação de autenticação
         socket.emit('authenticated', {
           success: true,
@@ -43,7 +54,15 @@ const handleChatSocket = (io) => {
         socket.emit('recent_messages', recentMessages);
       } catch (error) {
         console.error('Erro ao buscar mensagens recentes:', error);
+        return;
       }
+
+      // Novo código aqui
+      socket.on('leave_room', () => {
+        socket.leave(socket.currentRoom);
+        socket.currentRoom = null;
+        console.log(`${socket.username} saiu da sala`);
+      });
     });
 
     // Enviar mensagem
@@ -65,6 +84,9 @@ const handleChatSocket = (io) => {
           room
         );
 
+        // Incrementa métrica Prometheus
+        messagesCounter.inc();
+
         // Formatar mensagem para envio
         const messageData = {
           id: savedMessage.id,
@@ -74,7 +96,7 @@ const handleChatSocket = (io) => {
           room: room
         };
 
-        // Transmitir para todos na sala
+        // Envia pra todo mundo na sala
         io.to(room).emit('chatMessage', messageData);
         
         console.log(`${socket.username}: ${message} (${room})`);
@@ -84,15 +106,18 @@ const handleChatSocket = (io) => {
       }
     });
 
-    // Desconexão
+    // ❌ Usuário desconectou
     socket.on('disconnect', () => {
+      console.log('Usuário desconectado:', socket.id);
+
+      connections.count--;
+      connectedUsersGauge.set(connections.count);
+
       if (socket.username) {
         console.log(`${socket.username} desconectado do chat`);
-      } else {
-        console.log('Usuário desconectado do chat:', socket.id);
       }
     });
   });
-};
+}
 
 module.exports = handleChatSocket;
