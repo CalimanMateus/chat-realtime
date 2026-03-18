@@ -142,42 +142,94 @@ Responsibilities:
 
 ```
 chat-realtime/
-├── server/          # Backend Node.js
-│   ├── controllers/
-│   ├── routes/
-│   ├── models/
-│   ├── middleware/
-│   ├── sockets/
-│   ├── config/
-│   ├── server.js
-│   ├── package.json
-│   └── .env
-└── client/          # Frontend React
-    ├── src/
-    │   ├── components/
-    │   ├── App.jsx
-    │   ├── main.jsx
-    │   └── index.css
-    ├── public/
-    ├── index.html
-    ├── vite.config.js
-    └── package.json
+├── 📄 README.md
+├── 📄 QUICK_START.md
+├── 📄 DEVELOPMENT.md
+├── 📄 GUIDE.md
+├── 📄 test_api.ps1
+│
+├── 📂 server/
+│   ├── 📄 package.json
+│   ├── 📄 server.js
+│   ├── 📄 .env
+│   ├── 📄 metrics.js
+│   │
+│   ├── 📂 controllers/
+│   │   └── 📄 authController.js
+│   │
+│   ├── 📂 routes/
+│   │   └── 📄 authRoutes.js
+│   │
+│   ├── 📂 sockets/
+│   │   └── 📄 chatSocket.js
+│   │
+│   ├── 📂 models/
+│   │   ├── 📄 userModel.js
+│   │   └── 📄 messageModel.js
+│   │
+│   └── 📂 middleware/
+│       └── 📄 authMiddleware.js
+│
+├── 📂 client/
+│   ├── 📄 package.json
+│   ├── 📄 index.html
+│   ├── 📄 tailwind.config.js
+│   ├── 📄 postcss.config.js
+│   ├── 📄 vite.config.js
+│   │
+│   ├── 📂 src/
+│   │   ├── 📄 index.css
+│   │   ├── 📄 App.jsx
+│   │   │
+│   │   ├── 📂 pages/
+│   │   │   ├── 📄 Login.jsx
+│   │   │   ├── 📄 Register.jsx
+│   │   │   └── 📄 Chat.jsx
+│   │   │
+│   │   ├── 📂 components/
+│   │   │   ├── 📄 ChatBox.jsx
+│   │   │   ├── 📄 Message.jsx
+│   │   │   └── 📄 ProtectedRoute.jsx
+│   │   │
+│   │   └── 📂 services/
+│   │       ├── 📄 api.js
+│   │       └── 📄 socket.js
+│   │
+│   └── 📂 public/
+│       └── 📄 index.html
+│
+├── 📂 monitoring/
+│   └── 📄 prometheus.yml
+│
+└── 📂 .windsurf/
+    └── 📂 workflows/
+        └── 📄 metrics.md
 ```
 
 ## 🚀 Tecnologias
 
-### Backend (server/)
-- Node.js 20+ LTS
-- Express 4.18.2
-- Socket.IO 4.7.4
-- PostgreSQL 18
-- JWT
-- bcrypt
+🚀 Stack Tecnológica
+🔧 Backend
 
-### Frontend (client/)
-- React 18
-- Vite 5
-- Socket.IO Client 4.7.4
+Node.js 20+ (LTS) → Execução do servidor
+
+Express 4.18.2 → API REST
+
+Socket.IO 4.7.4 → Comunicação em tempo real (WebSockets)
+
+PostgreSQL 18 → Banco de dados relacional
+
+JSON Web Token (JWT) → Autenticação stateless
+
+bcrypt → Criptografia de senhas
+
+🎨 Frontend
+
+React 18 → Interface reativa
+
+Vite 5 → Build ultra rápido
+
+Socket.IO Client 4.7.4 → Comunicação com backend
 
 ## 📦 Instalação
 
