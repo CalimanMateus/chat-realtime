@@ -99,11 +99,12 @@ Este projeto não é apenas um chat em tempo real, mas também demonstra prátic
 - Health checks
 - Métricas de aplicação
 
-🧰 Technologies
+##🧰 Technologies
+
 🚀 Backend
 <p> <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" /> <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" /> <img src="https://img.shields.io/badge/Socket.IO-010101?style=for-the-badge&logo=socketdotio&logoColor=white" /> <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" /> <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" /> <img src="https://img.shields.io/badge/bcrypt-4A90E2?style=for-the-badge" /> </p>
 
-Responsibilities:
+ - Responsibilities:
 
 🔐 User authentication
 
@@ -116,7 +117,7 @@ Responsibilities:
 🎨 Frontend
 <p> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" /> <img src="https://img.shields.io/badge/Socket.IO_Client-010101?style=for-the-badge&logo=socketdotio&logoColor=white" /> </p>
 
-Responsibilities:
+- Responsibilities:
 
 🎨 UI rendering
 
