@@ -51,7 +51,7 @@ function handleChatSocket(io, { connections, connectedUsersGauge }) {
       // Enviar mensagens recentes da sala
       try {
         const recentMessages = await Message.getRecentMessages(room);
-        socket.emit('recent_messages', recentMessages);
+        socket.emit('recentMessages', recentMessages);
       } catch (error) {
         console.error('Erro ao buscar mensagens recentes:', error);
         return;

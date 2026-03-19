@@ -1,7 +1,18 @@
 global:
   scrape_interval: 5s
+  evaluation_interval: 5s
 
 scrape_configs:
+  # Backend Node.js
   - job_name: 'node-backend'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
     static_configs:
-      - targets: ['host.docker.internal:3000']
+      - targets: ['backend:3000']
+
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['prometheus:9090']
